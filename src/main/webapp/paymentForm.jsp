@@ -162,7 +162,7 @@
         </div>
 
         <div class="amount-display">
-            💰 <%= reservation.getPrice() %> MAD
+            💰 <%= reservation.getPrice() %> €
         </div>
 
         <form action="<%= request.getContextPath() %>/payment" method="post">

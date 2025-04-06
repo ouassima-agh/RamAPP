@@ -168,10 +168,9 @@
         </div>
     </div>
 </div>
-
 <div class="navigation">
     <a href="#" class="nav-item active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-    <a href="indexa.jsp" class="nav-item"><i class="fas fa-ticket-alt"></i> Reservation</a>
+    <a href="<%= request.getContextPath() %>/searchFlights" class="nav-item"><i class="fas fa-ticket-alt"></i> Réservation </a>
     <a href="index.jsp" class="nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
 

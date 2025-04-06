@@ -97,7 +97,7 @@
         <div class="info"><strong>De :</strong> <%= reservation.getFlight().getDepartureAirport().getCity() %></div>
         <div class="info"><strong>À :</strong> <%= reservation.getFlight().getArrivalAirport().getCity() %></div>
         <div class="info"><strong>Passager :</strong> <%= reservation.getPassenger().getPrenom() %> <%= reservation.getPassenger().getNom() %></div>
-        <div class="info"><strong>Montant payé :</strong> <%= reservation.getPrice() %> MAD</div>
+        <div class="info"><strong>Montant payé :</strong> <%= reservation.getPrice() %> €</div>
 
         <% if (pdfFile != null) { %>
         <a href="<%= request.getContextPath() + "/" + pdfFile %>" target="_blank" class="btn">📄 Télécharger votre billet PDF</a>
