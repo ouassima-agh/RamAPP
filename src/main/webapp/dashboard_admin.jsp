@@ -10,97 +10,147 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
-            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            font-family: "Segoe UI", sans-serif;
+            color: white;
+            background: rgba(0, 0, 0, 0.85);
         }
+
+        .background-slider {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
         .header {
-            background-color: white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 30px;
+            background-color: rgba(0, 0, 0, 0.7);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.6);
         }
+
         .logo {
             height: 50px;
         }
+
+        .search-bar input {
+            border-radius: 20px;
+            border: none;
+            padding-left: 30px;
+        }
+
         .search-bar {
             position: relative;
             width: 300px;
         }
-        .search-bar input {
-            padding-left: 35px;
-            border-radius: 20px;
-            border: 1px solid #ddd;
-        }
+
         .search-bar i {
             position: absolute;
-            left: 12px;
+            left: 10px;
             top: 10px;
-            color: #777;
+            color: #999;
         }
+
         .user-profile {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 15px;
+            color: white;
         }
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: #ddd;
+
+        .navigation {
             display: flex;
-            align-items: center;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 15px 0;
+            margin-bottom: 30px;
+            border-top: 1px solid #444;
+            border-bottom: 1px solid #444;
+        }
+
+        .nav-item {
+            margin: 0 20px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            color: #00aaff;
+            border-bottom: 2px solid #00aaff;
+        }
+
+        .content-area {
+            padding: 50px 20px;
+            display: flex;
             justify-content: center;
         }
-        .navigation {
-            background-color: white;
-            padding: 10px 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            margin-bottom: 20px;
-        }
-        .nav-item {
-            display: inline-block;
-            padding: 10px 20px;
-            margin: 0 5px;
-            border-radius: 5px;
-            text-decoration: none;
-            color: #333;
-            transition: all 0.3s;
-        }
-        .nav-item.active {
-            background-color: #e6f7ff;
-            color: #0077cc;
-            border-bottom: 2px solid #0077cc;
-        }
-        .nav-item:hover {
-            background-color: #f0f0f0;
-        }
-        .content-area {
-            padding: 20px;
-        }
+
         .card {
-            margin-bottom: 20px;
-            border: none;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-        .card-header {
-            padding: 12px 20px;
-            font-weight: 600;
-        }
-        .table th {
-            font-weight: 600;
-            color: #555;
-            background-color: #f8f9fa;
-        }
-        .btn-action {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 30px;
             border-radius: 20px;
-            padding: 5px 15px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+        }
+
+        .card-header h5 {
+            font-size: 1.8rem;
+            color: #00aaff;
+        }
+
+        .card-body p {
+            font-size: 1.1rem;
+        }
+
+        .btn-action {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 30px;
+            transition: transform 0.3s;
+        }
+
+        .btn-action:hover {
+            transform: scale(1.05);
+            background-color: #0056b3;
         }
     </style>
 </head>
 <body>
+
+<!-- Background Slider -->
+<div class="background-slider">
+    <div class="slide active" style="background-image: url('https://th.bing.com/th/id/R.5e82021178037c0ae407d038bde91d05?rik=g6YKLZKvv%2ftcDg&pid=ImgRaw&r=0');"></div>
+    <div class="slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/f1/Royal_Air_Maroc_Boeing_787-9_Dreamliner_CN-RGZ_departing_JFK_Airport.jpg');"></div>
+    <div class="slide" style="background-image: url('https://www.lesjardinsdelamedina.com/blog/wp-content/uploads/2017/09/aeroport-2.jpg');"></div>
+</div>
+
 <div class="header">
     <img src="https://th.bing.com/th/id/OIP.iMZoiJl4hWfbyjjPXcIGAwHaEn?rs=1&pid=ImgDetMain.jpg" alt="Company Logo" class="logo">
 
@@ -110,43 +160,45 @@
     </div>
 
     <div class="user-profile">
-        <div class="notifications">
-            <i class="fas fa-bell"></i>
-        </div>
-        <div class="user-avatar">
-            <i class="fas fa-user"></i>
-        </div>
-
-
+        <i class="fas fa-bell"></i>
+        <div class="user-avatar"><i class="fas fa-user"></i></div>
         <div class="user-info">
-            <div class="profile-pic"></div>
             <span class="username">MY PROFILE</span>
             <i class="fas fa-chevron-down"></i>
         </div>
-
     </div>
 </div>
+
 <div class="navigation">
     <a href="#" class="nav-item active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
     <a href="manage_users.jsp" class="nav-item"><i class="fas fa-users"></i> Manage Users</a>
-    <a href="manage_reservations.jsp" class="nav-item"><i class="fas fa-calendar-alt"></i> Manage Reservations</a>
+    <a href="flight.jsp" class="nav-item"><i class="fas fa-calendar-alt"></i> Manage Flights</a>
     <a href="index.jsp" class="nav-item"><i class="fas fa-sign-out-alt"></i> Logout</a>
 </div>
-
 
 <div class="content-area">
     <div class="card">
         <div class="card-header">
-            <h5>Welcome To Your ROYAL AIR MAROC Space </h5>
+            <h5>Welcome To Your ROYAL AIR MAROC Space</h5>
         </div>
         <div class="card-body">
-            <p>Here you can manage users, reservations, and system settings.</p>
+            <p>Here you can manage users, flights, and system settings.</p>
         </div>
     </div>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const slides = document.querySelectorAll(".slide");
+        let currentIndex = 0;
 
-
+        setInterval(() => {
+            slides[currentIndex].classList.remove("active");
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add("active");
+        }, 5000);
+    });
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>

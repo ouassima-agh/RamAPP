@@ -1,131 +1,84 @@
 package model;
 
 import jakarta.persistence.*;
+import java.time.LocalDate;
 
-import java.sql.Date;
 
 @Entity
-@Table(name = "reservation")
+@Table(name = "reservations")
 public class Reservation {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idReservation;
+    private Long id;
 
-    private String statutReservation;
-    private Date dateReservation;
-
-    private String villeDepart;
-
-    private String villeArrive;
-    private String transport;
-    private String Duree;
-    private int nombreVoyageurs;
-    private double prix;
-
+    // 🔗 Lien avec Passager (Many reservations to one passenger)
     @ManyToOne
-    @JoinColumn(name = "idClient", nullable = false)
-    private Client client;
+    @JoinColumn(name = "passenger_id", nullable = false)
+    private Passenger passenger;
 
+    // 🔗 Lien avec Vol (Many reservations to one flight)
     @ManyToOne
-    @JoinColumn(name = "voyage_id")  // Clé étrangère dans Reservation
-    private Voyage voyage;
+    @JoinColumn(name = "flight_id", nullable = false)
+    private Flight flight;
 
-    public Reservation() {
+    @Column(nullable = false)
+    private double price;
+
+    @Column(name = "reservation_date", nullable = false)
+    private LocalDate date;
+
+    // --- Constructeurs ---
+    public Reservation() {}
+
+    public Reservation(Passenger passenger, Flight flight, double price, LocalDate date) {
+        this.passenger = passenger;
+        this.flight = flight;
+        this.price = price;
+        this.date = date;
+    }
+
+    public Reservation(Passenger passenger, double price, LocalDate now) {
+
+        this.passenger=passenger;
+        this.price=price;
 
     }
 
-    public Reservation(Long idReservation, String statutReservation, Date dateReservation, Client client) {
-        this.idReservation = idReservation;
-        this.statutReservation = statutReservation;
-        this.dateReservation = dateReservation;
-        this.client = client;
+    // --- Getters & Setters ---
+    public Long getId() {
+        return id;
     }
 
-    public Long getIdReservation() {
-        return idReservation;
+    public Passenger getPassenger() {
+        return passenger;
     }
 
-    public void setIdReservation(Long idReservation) {
-        this.idReservation = idReservation;
+    public void setPassenger(Passenger passenger) {
+        this.passenger = passenger;
     }
 
-    public String getStatutReservation() {
-        return statutReservation;
+    public Flight getFlight() {
+        return flight;
     }
 
-    public void setStatutReservation(String statutReservation) {
-        this.statutReservation = statutReservation;
+    public void setFlight(Flight flight) {
+        this.flight = flight;
     }
 
-    public Date getDateReservation() {
-        return dateReservation;
+    public double getPrice() {
+        return price;
     }
 
-    public void setDateReservation(Date dateReservation) {
-        this.dateReservation = dateReservation;
+    public void setPrice(double price) {
+        this.price = price;
     }
 
-    public Client getClient() {
-        return client;
+    public LocalDate getDate() {
+        return date;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
-    }
-
-    public String getVilleDepart() {
-        return villeDepart;
-    }
-
-    public void setVilleDepart(String villeDepart) {
-        this.villeDepart = villeDepart;
-    }
-
-    public String getVilleArrive() {
-        return villeArrive;
-    }
-
-    public void setVilleArrive(String villeArrive) {
-        this.villeArrive = villeArrive;
-    }
-
-    public String getTransport() {
-        return transport;
-    }
-
-    public void setTransport(String transport) {
-        this.transport = transport;
-    }
-
-    public String getDuree() {
-        return Duree;
-    }
-
-    public void setDuree(String duree) {
-        Duree = duree;
-    }
-
-    public int getNombreVoyageurs() {
-        return nombreVoyageurs;
-    }
-
-    public void setNombreVoyageurs(int nombreVoyageurs) {
-        this.nombreVoyageurs = nombreVoyageurs;
-    }
-
-    public double getPrix() {
-        return prix;
-    }
-
-    public void setPrix(double prix) {
-        this.prix = prix;
-    }
-
-    public Voyage getVoyage() {
-        return voyage;
-    }
-
-    public void setVoyage(Voyage voyage) {
-        this.voyage = voyage;
+    public void setDate(LocalDate date) {
+        this.date = date;
     }
 }

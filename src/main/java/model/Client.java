@@ -4,6 +4,7 @@ package model;
 import jakarta.persistence.*;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,21 +22,21 @@ public class Client {
     private String emailClient;
     private String motDePassClient;
 
-    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
+  /* @OneToMany(mappedBy = "client", cascade = CascadeType.ALL)
     private List<Reservation> reservations;
-
+*/
     public Client() {
 
     }
 
-    public Client(Long idClient, String nomClient, String prenomClient, String emailClient, String motDePassClient, String telClient, List<Reservation> reservations) {
+    public Client(Long idClient, String nomClient, String prenomClient, String emailClient, String motDePassClient, String telClient) {
         this.idClient = idClient;
         this.nomClient = nomClient;
         this.prenomClient = prenomClient;
         this.emailClient = emailClient;
         this.motDePassClient = motDePassClient;
         this.telClient = telClient;
-        this.reservations = reservations;
+      // this.reservations = new ArrayList<>();
     }
 
     public Long getIdClient() {
@@ -85,14 +86,14 @@ public class Client {
     public void setTelClient(String telClient) {
         this.telClient = telClient;
     }
-
-    public List<Reservation> getReservations() {
+/*
+   public List<Reservation> getReservations() {
         return reservations;
     }
 
     public void setReservations(List<Reservation> reservations) {
         this.reservations = reservations;
-    }
+    }*/
 
     public Date getDateNaissance() {
         return dateNaissance;

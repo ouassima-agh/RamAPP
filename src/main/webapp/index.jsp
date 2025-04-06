@@ -27,8 +27,8 @@
 </header>
 <div class="background-slider">
     <div class="slide" style="background-image: url('https://th.bing.com/th/id/R.5e82021178037c0ae407d038bde91d05?rik=g6YKLZKvv%2ftcDg&pid=ImgRaw&r=0.jpg.jpg');"></div>
-    <div class="slide" style="background-image: url('https://static.srpcdigital.com/styles/1037xauto/public/2024-01/484521_0.jpeg.jpg');"></div>
-    <div class="slide" style="background-image: url('https://images.ctfassets.net/m9ph4qvas97u/2UKXBeDGt9bNOYeYe1s59u/84d96b7b7b18b304556c0685725d1b4d/oneworld-alliance-royal-air-maroc-RAM_787-9-plane.png?fm=webp&q=80.jpg');"></div>
+    <div class="slide" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/f/f1/Royal_Air_Maroc_Boeing_787-9_Dreamliner_CN-RGZ_departing_JFK_Airport.jpg');"></div>
+    <div class="slide" style="background-image: url('https://www.lesjardinsdelamedina.com/blog/wp-content/uploads/2017/09/aeroport-2.jpg');"></div>
 </div>
 
 <script>
